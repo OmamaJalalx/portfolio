@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Omama Jalal | AI & Data Science</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:#e2e8f0;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+/* ===== Floating Gradient Background ===== */
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#38bdf8,transparent 60%);
+    top:-200px;
+    left:-200px;
+    opacity:0.15;
+    animation:float 12s infinite alternate ease-in-out;
+    z-index:-1;
+}
+
+@keyframes float{
+    from{transform:translate(0,0);}
+    to{transform:translate(200px,150px);}
+}
+
+/* ===== Sticky Navbar ===== */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:15px 10%;
+    backdrop-filter:blur(10px);
+    background:rgba(15,23,42,0.6);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+nav a{
+    margin-left:20px;
+    color:#e2e8f0;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* ===== Sections ===== */
+section{
+    padding:100px 10%;
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+h2{
+    margin-bottom:40px;
+    font-size:2.2rem;
+    border-left:4px solid #38bdf8;
+    padding-left:15px;
+}
+
+/* ===== Hero ===== */
+header{
+    padding:160px 10% 120px;
+    text-align:center;
+}
+
+header h1{
+    font-size:3.2rem;
+    font-weight:700;
+}
+
+.typing{
+    font-size:1.3rem;
+    margin-top:15px;
+    color:#38bdf8;
+    height:30px;
+}
+
+/* ===== Cards ===== */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    transition:0.4s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 35px rgba(56,189,248,0.25);
+}
+
+.card i{
+    color:#38bdf8;
+    margin-right:8px;
+}
+
+.card ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+.card ul li{
+    margin-bottom:6px;
+}
+
+.project-link{
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 15px;
+    border-radius:8px;
+    background:#38bdf8;
+    color:#0f172a;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.project-link:hover{
+    background:#0ea5e9;
+    transform:scale(1.05);
+}
+
+/* ===== Skills ===== */
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    background:#0f172a;
+    border:1px solid #38bdf8;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:0.85rem;
+}
+
+/* ===== Footer ===== */
+footer{
+    text-align:center;
+    padding:40px;
+    margin-top:60px;
+    background:#1e293b;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.project-card {
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-icon {
+    font-size: 1.3rem;
+    color: #60a5fa;
+}
+
+.tech-stack {
+    color: #94a3b8;
+    font-weight: 500;
+    margin: 10px 0 15px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.skill-card {
+    transition: 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill {
+    display: inline-block;
+    background: #1e293b;
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin: 6px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: #2563eb;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header>
+    <h1>Omama Jalal</h1>
+    <div class="typing" id="typing"></div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Third-year Computer Science student specializing in Software Industry & Multimedia.
+        Passionate about AI, Machine Learning, and Data Analytics.
+        Strong foundation in OOP, Data Structures, and real-world ML applications.
+    </p>
+</section>
+
+<section> 
+    <h2>Education</h2> 
+    <div class="card"> <h3>
+        <i class="fa-solid fa-graduation-cap"></i> B.Sc. Software Industry & Multimedia (SIM)</h3> 
+        <p>Faculty of Science, Alexandria University</p> 
+        <p>2023 – 2027</p> 
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <h2>Experience</h2>
+
+    <div class="card">
+        <h3>
+        <i class="fa-solid fa-briefcase"></i> AI Data Science Intern – Microsoft ML Track (DEPI)</h3> 
+        <p><strong>Nov 2025 – Present</strong></p> <ul> 
+            <li>Applying machine learning and deep learning on real-world datasets.</li> 
+            <li>NLP and Computer Vision tasks.</li> <li>Azure for cloud-based ML workflows.</li> 
+            <li>Tracking experiments using MLflow.</li> </ul>
+    </div>
+    <div class="card" style="margin-top:20px;">
+         <h3><i class="fa-solid fa-chart-column"></i> Data Analytics Intern – Elevvo</h3>
+         <p><strong>2025</strong></p> 
+         <ul> 
+            <li>Built interactive retail dashboards using Power BI and DAX.</li> 
+            <li>Analyzed 10k+ transaction datasets.</li> 
+            <li>Performed data cleaning and modeling for business insights.</li> </ul> 
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+
+        <!-- Project 4 -->
+        <div class="card project-card">
+            <div class="project-header">
+                <h3>2025 – Power BI Dashboard</h3>
+                <i class="fa-solid fa-chart-line project-icon"></i>
+            </div>
+            <p class="tech-stack">Power BI</p>
+            <ul>
+                <li>Interactive retail analytics dashboard.</li>
+                <li>Year-over-Year KPIs using DAX.</li>
+                <li>Advanced data modeling.</li>
+            </ul>
+            <a href="https://github.com/OmamaJalalx/Superstore-Sales-Dashboard"
+               target="_blank"
+               class="project-link">
+               <i class="fa-brands fa-github"></i> View Project
+            </a>
+        </div>
+        <!-- Project 5 -->
+        <div class="card project-card">
+            <div class="project-header">
+                <h3>2025 – Customer Segmentation (RFM)</h3>
+                <i class="fa-solid fa-users project-icon"></i>
+            </div>
+            <p class="tech-stack">Python</p>
+            <ul>
+                <li>Data cleaning & preprocessing.</li>
+                <li>Segmented customers into 5 groups.</li>
+                <li>Created behavior visualizations.</li>
+                <li>Proposed targeted marketing strategies.</li>
+            </ul>
+            <a href="https://github.com/OmamaJalalx/Customer-Segmentation-Using-RFM-Analysis"
+               target="_blank"
+               class="project-link">
+               <i class="fa-brands fa-github"></i> View Project
+            </a>
+        </div>
+
+         <!-- Project 3 -->
+        <div class="card project-card">
+            <div class="project-header">
+                <h3>2025 – E-commerce Database</h3>
+                <i class="fa-solid fa-database project-icon"></i>
+            </div>
+            <p class="tech-stack">SQL</p>
+            <ul>
+                <li>Designed ERD and relational schema.</li>
+                <li>Implemented constraints and data types.</li>
+                <li>Wrote complex queries and subqueries.</li>
+            </ul>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card project-card">
+            <div class="project-header">
+                <h3>2025 – E-commerce Frontend</h3>
+                <i class="fa-solid fa-cart-shopping project-icon"></i>
+            </div>
+            <p class="tech-stack">HTML, CSS, JavaScript</p>
+            <ul>
+                <li>Built responsive product listings.</li>
+                <li>Implemented cart with LocalStorage.</li>
+                <li>Dynamic DOM manipulation for checkout.</li>
+            </ul>
+        </div>
+
+        <!-- Project 1 -->
+        <div class="card project-card">
+            <div class="project-header">
+                <h3>2024 – Nermo’s Adventure</h3>
+                <i class="fa-solid fa-gamepad project-icon"></i>
+            </div>
+            <p class="tech-stack">Unity & C#</p>
+            <ul>
+                <li>Designed a 2D educational game teaching Java basics.</li>
+                <li>Built interactive levels introducing conditionals.</li>
+                <li>Created visual programming challenges for kids.</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<section id="skills">
+    <h2>Technical Skills</h2>
+
+    <div class="skills-grid">
+
+        <div class="card skill-card">
+            <h3>Programming</h3>
+            <div class="skills">
+                <span class="skill">Python</span>
+                <span class="skill">Java</span>
+                <span class="skill">SQL</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">C#</span>
+            </div>
+        </div>
+
+        <div class="card skill-card">
+            <h3>Data & AI</h3>
+            <div class="skills">
+                <span class="skill">Machine Learning</span>
+                <span class="skill">Deep Learning</span>
+                <span class="skill">NLP</span>
+                <span class="skill">Computer Vision</span>
+            </div>
+        </div>
+
+        <div class="card skill-card">
+            <h3>Tools</h3>
+            <div class="skills">
+                <span class="skill">Power BI</span>
+                <span class="skill">Azure</span>
+                <span class="skill">MLflow</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p><i class="fa-solid fa-envelope"></i> 
+        <a href="mailto:omamajalal3@gmail.com">omamajalal3@gmail.com</a></p>
+    <p><i class="fa-brands fa-linkedin"></i> 
+        <a href="https://www.linkedin.com/in/omama-jalal" target="_blank">LinkedIn</a></p>
+    <p><i class="fa-brands fa-github"></i> 
+        <a href="https://github.com/OmamaJalalx" target="_blank">GitHub</a></p>
+</section>
+
+<footer>
+    © 2026 Omama Jalal. Built with ❤️
+</footer>
+
+<!-- Typing Effect -->
+<script>
+const roles = [
+"AI & Data Science Student",
+"Machine Learning Enthusiast",
+"NLP & Computer Vision Explorer",
+"Future AI Engineer 🚀"
+];
+
+let index = 0;
+let charIndex = 0;
+let currentText = "";
+let isDeleting = false;
+const typingElement = document.getElementById("typing");
+
+function type(){
+    const fullText = roles[index];
+    
+    if(isDeleting){
+        currentText = fullText.substring(0,charIndex--);
+    }else{
+        currentText = fullText.substring(0,charIndex++);
+    }
+
+    typingElement.textContent = currentText;
+
+    if(!isDeleting && charIndex === fullText.length){
+        setTimeout(()=> isDeleting = true,1000);
+    }else if(isDeleting && charIndex === 0){
+        isDeleting = false;
+        index = (index + 1) % roles.length;
+    }
+
+    setTimeout(type, isDeleting ? 50 : 100);
+}
+
+type();
+
+/* Scroll Reveal */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+    sections.forEach(sec=>{
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
